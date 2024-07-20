@@ -158,7 +158,8 @@ import hpdcache_pkg::*;
     input  logic                          cfg_wbuf_inhibit_write_coalescing_i,
     input  logic                          cfg_prefetch_updt_plru_i,
     input  logic                          cfg_error_on_cacheable_amo_i,
-    input  logic                          cfg_rtab_single_entry_i
+    input  logic                          cfg_rtab_single_entry_i,
+    input  logic [hpdcacheCfg.u.memIdWidth-1:0] HPDCACHE_UC_READ_ID
 );
     //  }}}
 
@@ -301,8 +302,8 @@ import hpdcache_pkg::*;
     hpdcache_tag_t         arb_tag;
     hpdcache_pma_t         arb_pma;
 
-    localparam logic [hpdcacheCfg.u.memIdWidth-1:0] HPDCACHE_UC_READ_ID =
-        {hpdcacheCfg.u.memIdWidth{1'b1}};
+    // localparam logic [hpdcacheCfg.u.memIdWidth-1:0] HPDCACHE_UC_READ_ID =
+    //     {hpdcacheCfg.u.memIdWidth{1'b1}};
     localparam logic [hpdcacheCfg.u.memIdWidth-1:0] HPDCACHE_UC_WRITE_ID =
         {hpdcacheCfg.u.memIdWidth{1'b1}};
     //  }}}
